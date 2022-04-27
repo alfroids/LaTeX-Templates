@@ -1,0 +1,147 @@
+%---------------------------------------------------------------------------
+%
+%           .oooooo.     .oooooo.   ooo        ooooo 
+%         d8P'  `Y8b   d8P'  `Y8b  `88.       .888' 
+%       888          888           888b     d'888  
+%      888          888           8 Y88. .P  888  
+%     888          888           8  `888'   888  
+%    `88b    ooo  `88b    ooo   8    Y     888  
+%    `Y8bood8P'   `Y8bood8P'  o8o        o888o .usp
+%
+%   Arquivo LaTeX modelo para provas e listas de exercísio do CCM
+%   Por: Alfredo Marin
+%   Criado em: Setembro de 2021
+%
+%---------------------------------------------------------------------------
+
+\documentclass[a4paper, 12pt]{article}
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+
+% Configuração da fonte ----------------------------------------------------
+\usepackage[proportional,scaled=1.064]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+% Importação de pacotes ----------------------------------------------------
+\usepackage[brazilian]{babel}       % Traduzir alguns comandos automáticos
+\usepackage{fancyhdr}               % Customizar o cabeçalho e o rodapé
+\usepackage{amsmath}                % Usar fórmulas, comandos e símbolos matemáticos
+\usepackage{svg}                    % Importar imagens vetorizadas
+\usepackage{graphicx}               % Importar imagens
+\usepackage{xcolor}                 % Criar cores pré-definidas
+\usepackage{sectsty}                % Customizar a cor das seções
+\usepackage{minted}                 % Importar e formatar código
+\usepackage{hyperref}               % Adicionar hyperlinks
+\usepackage{lipsum}                 % Gerar parágrafos Lorem ipsum
+\usepackage[shortlabels]{enumitem}  % Customizar a enumeração
+\usepackage{setspace}               % Configurar o espaçamento entre linhas
+\usepackage[version=4]{mhchem}      % Usar fórmulas e reações químicas
+
+% Parâmetros --------------------------------------------------------------
+\newcommand{\curso}{Matéria}
+\newcommand{\codigo}{XXX0000}
+\newcommand{\email}{alf.reismarin@usp.br}
+\newcommand{\periodo}{Xº semestre de 202X}
+\newcommand{\professor}{Prof. Nome}
+
+\newcommand{\nome}{Alfredo Marin}
+\newcommand{\id}{11256987}
+\newcommand{\turma}{Turma 30}
+
+\newcommand{\cor}{cmred}
+\newcommand{\instituto}{Pró-Reitoria de Graduação \\
+                        Universidade de São Paulo}
+
+% Comandos personalizados --------------------------------------------------
+% Cores do logo
+\definecolor{cmred}{RGB}{234,53,70}         % Matemática
+\definecolor{cmorange}{RGB}{239,135,0}      % Física
+\definecolor{cmyellow}{RGB}{249,199,14}     % Química
+\definecolor{cmgreen}{RGB}{4,190,81}        % Biologia
+\definecolor{cmblue}{RGB}{0,120,215}        % Computação
+
+% Estilo do código
+\usemintedstyle{pastie}
+
+% Espaçamento entre linhas
+\setstretch{1.25}
+
+% Destacar
+\newcommand{\hili}[1]{\textcolor{\cor}{\bfseries #1}}
+
+% Novo estilo para o título da seção
+\sectionfont{\color{\cor}}
+\subsectionfont{\color{\cor}}
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+
+% Novo estilo para o título ------------------------------------------------
+\renewcommand{\maketitle}{
+    \thispagestyle{plain}
+    
+    \begin{figure}[t]
+        \centering
+        \includesvg[width=6cm]{logo-ciencias-moleculares.svg}
+    \end{figure}
+    
+    \begin{center}
+        {\scshape \instituto}
+        
+        \vspace{.75cm}
+        \hrule height 1.25pt
+        \vspace{.5cm}
+        
+        {\huge \hili{\curso}} \\
+        \vspace{.25cm}
+        {\large \codigo}
+        
+        \vspace{.5cm}
+        \hrule height 1.25pt
+        \vspace{.75cm}
+        
+        \periodo \\
+        \professor
+    \end{center}
+    
+    \vfill
+    
+    \begin{flushright}
+        {\large \hili{\nome}} \\
+        \id \\
+        \turma \\
+        \href{mailto:\email}{\email}
+    \end{flushright}
+    
+    \pagebreak
+    
+    \tableofcontents
+    
+    \pagebreak
+    
+    \pagestyle{fancy}
+    \fancyhf{}
+    
+    \fancyhead[L]{\curso}
+    \fancyhead[R]{\codigo}
+    \fancyfoot[C]{\thepage}
+    \setlength{\headheight}{15pt}
+    \renewcommand{\headrulewidth}{1.25pt}
+}
+
+% Início do documento ------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\section{Seção A}
+
+\subsection{Subseção}
+
+\lipsum[3-6]
+
+\section{Seção B}
+
+\lipsum[1-4]
+
+\end{document}
